@@ -23,13 +23,13 @@ jobs:
             - name: Sync open source Scan
               uses: snyk/actions/node@master
               env:
-                SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+                SNYK_TOKEN: ${{ ee4ee18e-bacf-4045-8129-8768aa7b516e }}
               with:
                 command: test
 
             - name: Synk code scan
               uses: snyk/actions/node@master
               env:
-                SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+                SNYK_TOKEN: ${{ ee4ee18e-bacf-4045-8129-8768aa7b516e}}
               with:
                 command: code test
