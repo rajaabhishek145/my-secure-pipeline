@@ -1,0 +1,32 @@
+name: DevSecOps Security Pipeline
+
+on: [push]
+
+jobs:
+    security-scans:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                fetch-depth: 0
+
+
+            - name: Scan for Secrets
+              uses: gitleaks/gitleaks-action@v2
+              env:
+                GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+            - name: Sync open source Scan
+              uses: synk/actions/node@master
+              env:
+                SYNK_TOKEN: ${{ secrets.SYNK_TOKEN }}
+              with:
+                command: test
+
+            - name: Synk code scan
+              uses: synk/actions/node@master
+              env:
+                SYNK_TOKEN: ${{ secrets.SYNK_TOKEN }}
+              with:
+                command: code test
