@@ -18,14 +18,14 @@ jobs:
                 GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
             - name: Sync open source Scan
-              uses: synk/actions/node@master
+              uses: snyk/actions/node@master
               env:
                 SYNK_TOKEN: ${{ secrets.SYNK_TOKEN }}
               with:
                 command: test
 
             - name: Synk code scan
-              uses: synk/actions/node@master
+              uses: snyk/actions/node@master
               env:
                 SYNK_TOKEN: ${{ secrets.SYNK_TOKEN }}
               with:
