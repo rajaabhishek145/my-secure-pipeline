@@ -17,6 +17,9 @@ jobs:
               env:
                 GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
+            - name: Install dependencies
+              run: npm install
+
             - name: Sync open source Scan
               uses: snyk/actions/node@master
               env:
