@@ -3,7 +3,6 @@ const app = express();
 
 
 app.get('/', (req, res) => {
-    eval(req.query.code);
     res.send('code executed');
 });
 
